@@ -8,7 +8,7 @@ edition = "2018"
 crate-type = ['cdylib']
 
 [dependencies]
-fluvio-smartstream = { version = "0.2" }
+fluvio-smartstream = { version = "0.3" }
 
 # We can make this crate have its own workspace.
 # This is needed to enable `profile.relesae.lto` below.
