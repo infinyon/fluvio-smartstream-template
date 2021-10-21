@@ -9,6 +9,9 @@ crate-type = ['cdylib']
 
 [dependencies]
 fluvio-smartstream = { version = "0.3" }
+{% if smartstream-type == "flatmap" %}
+serde_json = "1"
+{% endif %}
 
 # We can make this crate have its own workspace.
 # This is needed to enable `profile.relesae.lto` below.
