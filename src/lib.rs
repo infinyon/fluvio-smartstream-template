@@ -19,11 +19,11 @@ pub fn map(record: &Record) -> Result<(Option<RecordData>, RecordData)> {
 
     Ok((key, value.into()))
 }
-{% elsif smartstream-type == "flatmap" %}
+{% elsif smartstream-type == "array-map" %}
 use fluvio_smartstream::{smartstream, Result, Record, RecordData};
 
-#[smartstream(flat_map)]
-pub fn flatmap(record: &Record) -> Result<Vec<(Option<RecordData>, RecordData)>> {
+#[smartstream(array_map)]
+pub fn array_map(record: &Record) -> Result<Vec<(Option<RecordData>, RecordData)>> {
     // Deserialize a JSON array with any kind of values inside
     let array = serde_json::from_slice::<Vec<serde_json::Value>>(record.value.as_ref())?;
 
